@@ -1,7 +1,7 @@
 package com.company.projectrestassuredcucumber.cucumber;
 
-import cucumber.api.CucumberOptions;
-import cucumber.api.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import io.cucumber.junit.Cucumber;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
@@ -12,7 +12,8 @@ import org.junit.runner.RunWith;
         "junit:target/cucumber-reports/cucumber-pretty/Cucumber.xml"},
         tags = {"@ApiRest"},
         glue = {"com.company.projectrestassuredcucumber.cucumber"},
-        features = {"src/test/java/com/company/projectrestassuredcucumber/cucumber/features"}
+        features = {"src/test/resources/com/company/projectrestassuredcucumber/cucumber/features"},
+        monochrome = true, snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 public class RunCucumberTest {
 

@@ -1,8 +1,9 @@
 package com.company.projectrestassuredcucumber.cucumber.stepdefs;
 
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import com.company.projectrestassuredcucumber.cucumber.config.RedmineEndpoints;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
@@ -15,23 +16,18 @@ public class RestGetIssuesStepdefs {
 
     @Given("System is ready to send request")
     public void systemIsReadyToSendRequest() {
-        request = given()
-                .contentType("application/json");
+        request = given();
     }
 
     @When("System sends a request to list issues service from redmine json")
     public void systemSendsARequestToListIssuesServiceFromRedmineJson() {
         response = request.when()
-                .log()
-                .all()
-                .get("http://CESAR-PC:81/redmine/issues.json");
+                .get(RedmineEndpoints.ALL_REDMINE_ISSUES_JSON);
     }
 
     @Then("The response status should be {int}")
     public void theResponseStatusShouldBe(int arg0) {
         response.then()
-                .log()
-                .all()
                 .statusCode(arg0);
     }
 }
