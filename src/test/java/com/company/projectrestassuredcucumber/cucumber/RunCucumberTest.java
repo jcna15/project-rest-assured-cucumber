@@ -8,8 +8,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(plugin = {
         "pretty",
         "html:target/cucumber-reports/cucumber-pretty",
-        "json:target/cucumber-reports/cucumber-pretty/Cucumber.json",
-        "junit:target/cucumber-reports/cucumber-pretty/Cucumber.xml"},
+        "json:target/cucumber-reports/json-reports/Cucumber.json",
+        "junit:target/cucumber-reports/junit-reports/Cucumber.xml"},
         tags = {"@ApiRest"},
         glue = {"com.company.projectrestassuredcucumber.cucumber"},
         features = {"src/test/resources/com/company/projectrestassuredcucumber/cucumber/features"},
