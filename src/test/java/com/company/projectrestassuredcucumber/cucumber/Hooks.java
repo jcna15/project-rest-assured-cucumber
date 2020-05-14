@@ -29,7 +29,7 @@ public class Hooks {
                 .build();
 
         responseSpecification = new ResponseSpecBuilder()
-                .expectStatusCode(200)
+                //.expectStatusCode(200)
                 .build();
 
         RestAssured.requestSpecification = requestSpecification;

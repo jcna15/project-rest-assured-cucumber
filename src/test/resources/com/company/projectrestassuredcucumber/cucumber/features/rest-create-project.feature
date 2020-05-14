@@ -7,7 +7,7 @@ Feature: REST - Redmine REST Testing - Create Project
     Given System is ready to sent request
     When System sends a request to create project services to Redmine
     |name|RedmineProject|
-    |identifier|test10  |
+    |identifier|del|
     |description|Redmine Project from Cucumber-Rest Assured|
-    |is_public  |false  |
-    Then The response status should be 200
+    |is_public  |false |
+    Then The response status should be 201

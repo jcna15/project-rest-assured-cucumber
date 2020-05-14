@@ -17,13 +17,14 @@ public class RestCreateProjectStepdefs {
 
     @When("System sends a request to create project services to Redmine")
     public void systemSendsARequestToCreateProjectServicesToRedmine(Map<String, String> projectData) {
-        Integer randomNumber = (new Random()).nextInt(900000) + 100000;
+        Integer randomNumber = (new Random()).nextInt(90) + 100;
 
         Project project = new Project();
         project.setName(projectData.get("name") + randomNumber);
         project.setIdentifier(projectData.get("identifier") + randomNumber);
         project.setDescription(projectData.get("description"));
         project.setIs_public(Boolean.parseBoolean(projectData.get("is_public")));
+        project.setInherit_members(true);
 
         Entity entity = new Entity(project);
 
@@ -31,7 +32,5 @@ public class RestCreateProjectStepdefs {
                 .body(entity)
                 .when()
                 .post(RedmineEndpoints.ALL_REDMINE_PROJECT_JSON);
-
-
     }
 }
